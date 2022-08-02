@@ -1,56 +1,69 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.app') 
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+@section('content')
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+<!-- Page -->
+<div class="page main-signin-wrapper">
+   <!-- Row -->
+   <div class="row signpages text-center">
+      <div class="col-md-12">
+         <div class="card">
+            <div class="row row-sm">
+               <div class="col-lg-6 col-xl-5 d-none d-lg-block text-center bg-primary details">
+                  <div class="mt-5 pt-4 p-2 pos-absolute">
+                     <img  src="{{ url('spruha/img/brand/ulalaPurpureLogo-134x49.png') }}" class="header-brand-img mb-4" alt="logo">{{ config('app.env', 'Ambiente') }}
+                     <div class="clearfix"></div>
+                     <img src="{{ url('spruha/img/svgs/user.svg') }}" class="ht-100 mb-0" alt="user">
+                     <h5 class="mt-4 text-white">Create Your Account</h5>
+                     <span class="tx-white-6 tx-13 mb-5 mt-xl-0">Signup to create, discover and connect with the global community</span>
+                  </div>
+               </div>
+               <div class="col-lg-6 col-xl-7 col-xs-12 col-sm-12 login_form ">
+                  <div class="container-fluid">
+                     <div class="row row-sm">
+                        <div class="card-body mt-2 mb-2">
+                           <img src="{{ url('spruha/img/brand/ulalaPurpureLogo-134x49.png') }}" class=" d-lg-none header-brand-img text-center float-center mb-4" alt="logo">
+                           <div class="clearfix"></div>
+                           <form method="POST" action="{{ route('login') }}">
+                           	@csrf
+                              <h5 class="text-left mb-2">Bienvenid@</h5>
+                              <p class="mb-4 text-muted tx-13 ml-0 text-left">Inicie sesión para crear y descubrir una nueva experiencia</p>
+                              <div class="form-group text-left">
+                                 <label>Email</label>
+                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Ingresa tu email">
+                                 @error('email')
+                                 <span class="invalid-feedback" role="alert">
+                                 <strong>{{ $message }}</strong>
+                                 </span>
+                                 @enderror
+                              </div>
+                              <div class="form-group text-left">
+                                 <label>Contraseña</label>
+                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Ingresa tu password">
+                                 @error('password')
+                                 <span class="invalid-feedback" role="alert">
+                                 <strong>{{ $message }}</strong>
+                                 </span>
+                                 @enderror
+                              </div>
+                              <button type="submit" class="btn ripple btn-main-primary btn-block">Ingresar</button>
+                           </form>
+                           <div class="text-left mt-5 ml-0">
+                           	@if (Route::has('password.request'))
+                              <div class="mb-1"><a href="{{ route('password.request') }}">¿Olvidaste tu contraseña?</a></div>
+                            @endif
+                              <!-- <div>Don't have an account? <a href="#">Register Here</a></div> -->
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
+         </div>
+      </div>
+   </div>
+   <!-- End Row -->
+</div>
+		<!-- End Page -->
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
-            </div>
-
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+		@endsection
