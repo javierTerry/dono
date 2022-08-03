@@ -43,7 +43,7 @@
         <link href="{{ url('spruha/css/style.css') }}"  rel="stylesheet">
         <link href="{{ url('spruha/css/skins.css') }}"  rel="stylesheet">
         <link href="{{ url('spruha/css/dark-style.css') }}"  rel="stylesheet">
-        <link href="{{ url('spruha/css/colors/default.css') }}"  rel="stylesheet">
+        <link href="{{ url('spruha/css/colors/color6.css') }}"  rel="stylesheet">
 
         
 
