@@ -5,7 +5,7 @@
 	</a>
 	<div class="dropdown-menu">
 		<div class="header-navheading">
-			<h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
+			<h6 class="main-notification-title"></h6>
 			
 		</div>
 		<a class="dropdown-item border-top" href="#">

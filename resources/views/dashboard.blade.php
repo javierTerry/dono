@@ -27,12 +27,8 @@
         <!-- Style css-->
         <link href="{{ url('spruha/css/style.css') }}"  rel="stylesheet">
         <link href="{{ url('spruha/css/skins.css') }}"  rel="stylesheet">
-        <link href="{{ url('spruha/css/dark-style.css') }}"  rel="stylesheet">
-        <link href="{{ url('spruha/css/colors/default.css') }}"  rel="stylesheet">
-
-        <!-- Color css-->
-        <link id="theme" rel="stylesheet" type="text/css" media="all" href="{{ url('spruha/css/colors/color.css') }}">
-
+        <link id="theme" rel="stylesheet" type="text/css" media="all" href="{{ url('spruha/css/colors/color6.css') }}">
+       
         <!-- Select2 css-->
         <link href="{{ url('spruha/plugins/select2/css/select2.min.css') }}"  rel="stylesheet">
 
@@ -40,7 +36,8 @@
         <link rel="stylesheet" href="{{ url('spruha/plugins/multipleselect/multiple-select.css') }}">
 
         <!-- Sidemenu css-->
-        <link href="{{ url('spruha/css/sidemenu/sidemenu.css') }}"  rel="stylesheet">
+        <link href="{{ url('spruha/css/sidemenu/sidemenu2.css') }}"  rel="stylesheet">
+        
 
         <!-- Internal DataTables css-->
         <link href="{{ url('spruha/plugins/datatable/dataTables.bootstrap4.min.css') }}" rel="stylesheet" />
@@ -72,7 +69,7 @@
                     <ul class="nav">
                         <li class="nav-header"><span class="nav-label">MENU</span></li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="{{ url('/inicio') }}"><span class="shape1"></span><span class="shape2"></span><i class="ti-home sidemenu-icon"></i><span class="sidemenu-label">DASHBOARD</span></a>
+                            <a class="nav-link" href="{{ route('dashboard') }}"><span class="shape1"></span><span class="shape2"></span><i class="ti-home sidemenu-icon"></i><span class="sidemenu-label">DASHBOARD</span></a>
                         </li>
                         @canany(['isAdmin','isSysAdmin'])
                             @include('menu.configuracion')                      
@@ -84,7 +81,9 @@
                             @include('menu.usuario')
                         @endcanany
                       
-                         
+                        @include('menu.ltd')
+                        @include('menu.guia')
+                       
                     </ul>
                 </div>
             </div>
@@ -124,19 +123,15 @@
             <!-- Main Content-->
             <div class="main-content side-content pt-0">
                 <div class="container-fluid">
+                    @include('mensaje.error')
+                    @include('mensaje.danger')
+                    @include('mensaje.exitoso')
                     <div class="inner-body">
-                        <!-- Page Header -->
-                        <div class="page-header">
-                            <div></div>
-                            <div class="d-flex">
-                                    @include('mensaje.error')
-                                    @include('mensaje.danger')
-                                    @include('mensaje.exitoso')
-                            </div>                          
-                        </div>
-                        
-                        <!-- End Page Header -->
+
+
+                        <!-- Page Content -->
                         @yield('content')
+                        <!-- End Page Content -->     
                     </div>
                 </div>
             </div>
@@ -197,6 +192,7 @@
         
         <!-- Internal Jquery-steps js-->
         <script src="{{ url('spruha/plugins/jquery-steps/jquery.steps.min.js') }}"></script>
+        <script src="{{ url('spruha/js/checkout-jquery-steps.js')}}"></script>
 
         <!-- Internal Accordion-Wizard-Form js-->
         <script src="{{ url('spruha/plugins/accordion-Wizard-Form/jquery.accordion-wizard.min.js') }}"></script>
@@ -204,9 +200,6 @@
         <!-- Internal Form-wizard js-->
         <script src="{{ url('spruha/js/form-wizard.js') }}"></script>
 
-        <!-- Internal Dashboard js
-        <script src="{{ url('spruha/js/index.js') }}"></script>
--->
         <!-- Custom js -->
         <script src="{{ url('spruha/js/custom.js') }}"></script>
 

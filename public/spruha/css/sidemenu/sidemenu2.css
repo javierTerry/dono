@@ -18,7 +18,7 @@
 }
 
 .side-menu .nav-link:hover {
-  color: #ffffff;
+  color: #046cfc;
 }
 
 .side-menu .nav-link:hover .sidemenu-label {
@@ -224,7 +224,7 @@
     left: 0;
     bottom: 0;
     z-index: 2;
-    background-color: #ffffff;
+    background-color: #21F521;
   }
 }
 
@@ -343,13 +343,13 @@
 .main-sidebar-loggedin .media-body h6 {
   font-weight: 700;
   font-size: 14px;
-  color: #8f9cc0;
+  color: #21F521;
   margin-bottom: 2px;
 }
 
 .main-sidebar-loggedin .media-body span {
   display: block;
-  color: #a8afc7;
+  color: #21F521;
 }
 
 .main-sidebar-body {
@@ -397,7 +397,7 @@
   font-size: 11.49px;
   font-weight: 500;
   letter-spacing: .5px;
-  color: #77778c;
+  color: #21F521;
   padding: 10px 0px 0 0;
 }
 
@@ -408,7 +408,7 @@
 .main-sidebar-body .sub-txt {
   font-size: 10.9px;
   padding: 0 0px 0 0;
-  color: #9b9ca3;
+  color: #21F521;
   margin-bottom: 0;
   position: absolute;
   margin-top: -1px;
@@ -417,7 +417,7 @@
 .second-sidemenu .sub-txt {
   font-size: 10.9px;
   padding: 0 0px 0 0;
-  color: #8d95b1;
+  color: #21F521;
   margin-bottom: 10px;
 }
 
@@ -497,7 +497,7 @@
 }
 
 .main-sidebar-body .nav-sub-item.active > .nav-sub-link {
-  color: #c6c6e0;
+  color: #21F521;
 }
 
 .main-sidebar-body .nav-sub-item.show .nav-sub {
@@ -530,11 +530,11 @@
   display: inline-block;
   position: relative;
   margin-left: auto;
-  color: #f0f0ff;
+  color: #21F521;
 }
 
 .main-sidebar-body .nav-sub-link + .nav-sub-link {
-  border-top: 1px dotted #f0f0ff;
+  border-top: 1px dotted #21F521;
 }
 
 .main-sidebar-body li.active .sidemenu-icon {
@@ -548,7 +548,7 @@
   border-radius: 50%;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
           box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  color: #ffffff;
+  color: #21F521;
 }
 
 @media (min-width: 992px) {
@@ -604,12 +604,12 @@
     width: 35px;
     height: 35px;
     line-height: 35px;
-    background: #6259ca;
+    background: #21F521;
     text-align: center;
     border-radius: 50%;
     -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    color: #ffffff;
+    color: #21F521;
   }
   .main-body.main-sidebar-hide.main-sidebar-open .main-sidebar-body .nav {
     -webkit-box-orient: vertical;
@@ -684,7 +684,7 @@
     position: fixed;
     width: 100%;
     z-index: 10 !important;
-    border-bottom: 1px solid #e1e6f1;
+    border-bottom: 1px solid #EE150B;
     -webkit-box-shadow: -7.829px 11.607px 20px 0px rgba(144, 143, 160, 0.09);
             box-shadow: -7.829px 11.607px 20px 0px rgba(144, 143, 160, 0.09);
     left: 0;
@@ -762,9 +762,9 @@
     font-size: 14px;
     font-weight: 500;
     letter-spacing: .5px;
-    color: #ffffff;
+    color: #EE150B;
     padding: 0;
-    background: #07a7bb;
+    background: #EE150B;
     width: 28px;
     border-radius: 50%;
     text-align: center;
@@ -910,7 +910,7 @@
 }
 
 .main-sidebar .nav-sub-item.active .nav-sub-link {
-  color: #fff !important;
+  color: #EE150B !important;
 }
 
 @media (min-width: 768px) {
@@ -972,18 +972,18 @@
     display: none !important;
   }
   .leftmenu.light-leftmenu.main-sidebar-hide.main-sidebar-open .main-sidebar-body .nav-label {
-    color: #c8c4db;
+    color: #EE150B;
   }
   .leftmenu.light-leftmenu.main-sidebar-hide.main-sidebar-open .main-sidebar-body .sub-txt {
-    color: #a2a2b9;
+    color: #EE150B;
   }
   .leftmenu.light-leftmenu.main-sidebar-hide .sidemenu-logo {
-    border-bottom: 1px solid #f0f0ff;
+    border-bottom: 1px solid #EE150B;
   }
 }
 
 .main-sidebar-sticky {
-  background: #25233c;
+  background: #F5B221;
   position: fixed !important;
   top: 0px;
   left: 0;
@@ -993,7 +993,7 @@
 }
 
 .main-sidebar-body li.nav-item.active .nav-link {
-  background-color: #eaedf7;
+  background-color: #EE150B;
   position: relative;
   z-index: 1;
   margin: 10px auto !important;
@@ -1006,11 +1006,11 @@
 }
 
 .main-sidebar-body .nav-item.active .nav-link:before, .main-sidebar-body .nav-item.active .nav-link:after {
-  border-right: 20px solid #25233c;
+  border-right: 20px solid #EE150B;
 }
 
 .main-sidebar-body .nav-item.active .nav-link .shape1, .main-sidebar-body .nav-item.active .nav-link .shape2 {
-  background: #eaedf7;
+  background: #EE150B;
 }
 
 @media (min-width: 768px) {
@@ -1051,17 +1051,17 @@
   }
   .main-sidebar-hide li.nav-item.active .nav-link {
     border-radius: 0px;
-    background: #25233c;
+    background: #EE150B;
     margin: 0px !important;
   }
   .main-sidebar-hide .nav-link .sidemenu-icon {
     padding: 7px;
   }
   .light-theme.light-leftmenu.main-sidebar-hide li.nav-item.active .nav-link {
-    background: #fff;
+    background: #EE150B;
   }
   .main-sidebar-open li.nav-item.active .nav-link {
-    background-color: #eaedf7;
+    background-color: #EE150B;
     position: relative;
     border-radius: 30px 0 0 30px;
     margin: 10px auto !important;
@@ -1100,7 +1100,7 @@
     border-radius: 50%;
     -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    color: #ffffff;
+    color: #EE150B;
   }
   .main-sidebar-open .sidemenu-icon {
     margin: 0px !important;
@@ -1113,7 +1113,7 @@
     position: fixed;
     z-index: 9999;
     width: 240px;
-    background: #25233c;
+    background: #21F521;
     -webkit-transition: all 0.4s;
     transition: all 0.4s;
   }
@@ -1124,7 +1124,7 @@
     position: fixed;
     z-index: 999;
     width: 90px !important;
-    background: #25233c;
+    background: #21F521;
   }
   .main-sidebar-hide .main-sidebar-body {
     margin-top: 50px !important;
@@ -1134,10 +1134,10 @@
   }
   .dark-theme.main-body.leftmenu .sidemenu-logo {
     background: #0e0e23;
-    border-right: 1px solid #2b2b3e;
+    border-right: 1px solid #21F521;
   }
   .color-leftmenu.main-body.leftmenu .sidemenu-logo {
-    background: #6259ca;
+    background: #21F521;
   }
   .dark-theme.light-leftmenu .sidemenu-logo {
     background: #fff;
@@ -1190,7 +1190,7 @@
 }
 
 .main-sidebar-hide.light-leftmenu .main-sidebar-body li.active .sidemenu-label {
-  color: #6259ca;
+  color: #5CCA59;
 }
 
 .main-sidebar-hide.color-leftmenu .main-sidebar-body li.active .sidemenu-label {
@@ -1198,7 +1198,7 @@
 }
 
 .main-sidebar-hide.main-sidebar-open.color-leftmenu .main-sidebar-body li.active .sidemenu-label {
-  color: #6259ca;
+  color: #5CCA59;
 }
 
 @media (min-width: 768px) {

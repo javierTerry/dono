@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LtdController;
+
+use App\Dto\Estafeta;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +21,24 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-  
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+
+Route::resource('ltds','LtdController');
+Route::resource('guia','GuiaController');
+
+Route::get("/estafeta",function( ){
+
+    $estafeta = new Estafeta();
+    $estafeta -> init();
+
+
+    $data = "estafeta";
+    dd($data);
+});
+
+
+
 
 require __DIR__.'/auth.php';

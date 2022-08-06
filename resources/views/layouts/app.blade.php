@@ -41,39 +41,20 @@
 
         <!-- Style css-->
         <link href="{{ url('spruha/css/style.css') }}"  rel="stylesheet">
-        <link href="{{ url('spruha/css/skins.css') }}"  rel="stylesheet">
-        <link href="{{ url('spruha/css/dark-style.css') }}"  rel="stylesheet">
         <link href="{{ url('spruha/css/colors/color6.css') }}"  rel="stylesheet">
-
         
-
         <!-- Select2 css-->
         <link href="{{ url('spruha/plugins/select2/css/select2.min.css') }}"  rel="stylesheet">
 
         <!-- Mutipleselect css-->
         <link rel="stylesheet" href="{{ url('spruha/plugins/multipleselect/multiple-select.css') }}">
 
-        <!-- Sidemenu css-->
-        <link href="{{ url('spruha/css/sidemenu/sidemenu.css') }}"  rel="stylesheet">
+       
 <!-- ---------- -->
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/login') }}">
-                <!--   {{ config('app.name', 'Laravel') }}-->
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                    </ul>
-                  </div>
-            </div>
-        </nav>
+        
         <!--<div class="container mt-5" >
             <div class="row justify-content-center">
                 <img src="{{ url('spruha/img/brand/ulalaPurpureLogo-134x49.png') }}" class="header-brand-img desktop-logo" alt="logo"> {{ config('app.env', 'Ambiente') }}
