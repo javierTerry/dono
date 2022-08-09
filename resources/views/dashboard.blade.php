@@ -127,8 +127,6 @@
                     @include('mensaje.danger')
                     @include('mensaje.exitoso')
                     <div class="inner-body">
-
-
                         <!-- Page Content -->
                         @yield('content')
                         <!-- End Page Content -->     
@@ -142,7 +140,7 @@
                 <div class="container">
                     <div class="row row-sm">
                         <div class="col-md-12">
-                            <span>Copyright © 2021 <a href="#">ULALAXPRESS</a>. Designed by <a href="#">TED</a> All rights reserved.</span>
+                            <span>Copyright © 2022 <a href="#">XPERTAMEXICO</a>. Designed by <a href="#">TED</a> All rights reserved.</span>
                         </div>
                     </div>
                 </div>
@@ -156,7 +154,11 @@
 
 
         <!-- Jquery js-->
-        <script src="{{ url('spruha/plugins/jquery/jquery.min.js') }}"></script>
+
+ <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/parsley.js/2.7.0/parsley.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
 
         <!-- Bootstrap js-->
         <script src="{{ url('spruha/plugins/bootstrap/js/popper.min.js') }}"></script>
@@ -191,7 +193,6 @@
         <script src="{{ url('spruha/js/sticky.js') }}"></script>
         
         <!-- Internal Jquery-steps js-->
-        <script src="{{ url('spruha/plugins/jquery-steps/jquery.steps.min.js') }}"></script>
         <script src="{{ url('spruha/js/checkout-jquery-steps.js')}}"></script>
 
         <!-- Internal Accordion-Wizard-Form js-->
@@ -204,10 +205,7 @@
         <script src="{{ url('spruha/js/custom.js') }}"></script>
 
         <!-- Internal Parsley js-->
-        <script src="{{ url('spruha/plugins/parsleyjs/parsley.min.js') }}"></script>
-
-        <!-- Internal Form-validation js-->
-        <script src="{{ url('spruha/js/form-validation.js') }}"></script>
+        
         
         <!-- Internal Data Table js -->
         <script src="{{ url('spruha/plugins/datatable/jquery.dataTables.min.js') }}"></script>
@@ -394,9 +392,7 @@
                         }).always(function() {
                             console.log( "complete" );
                         });
-
-
-                    
+             
                 } else {
                     console.log( "enviosForm con errores" );
                     return false;
