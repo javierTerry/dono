@@ -156,11 +156,7 @@
 
 
         <!-- Jquery js-->
-
- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/parsley.js/2.7.0/parsley.js"></script>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
+        <script src="{{ url('spruha/plugins/jquery/jquery.min.js') }}"></script>
 
         <!-- Bootstrap js-->
         <script src="{{ url('spruha/plugins/bootstrap/js/popper.min.js') }}"></script>
@@ -193,21 +189,12 @@
 
         <!-- Sticky js -->
         <script src="{{ url('spruha/js/sticky.js') }}"></script>
-        
-        <!-- Internal Jquery-steps js-->
-        <script src="{{ url('spruha/js/checkout-jquery-steps.js')}}"></script>
-
-        <!-- Internal Accordion-Wizard-Form js-->
-        <script src="{{ url('spruha/plugins/accordion-Wizard-Form/jquery.accordion-wizard.min.js') }}"></script>
-
-        <!-- Internal Form-wizard js-->
-        <script src="{{ url('spruha/js/form-wizard.js') }}"></script>
 
         <!-- Custom js -->
         <script src="{{ url('spruha/js/custom.js') }}"></script>
 
         <!-- Internal Parsley js-->
-        
+        <script src="{{ url('spruha/plugins/parsleyjs/parsley.min.js') }}"></script>
         
         <!-- Internal Data Table js -->
         <script src="{{ url('spruha/plugins/datatable/jquery.dataTables.min.js') }}"></script>
@@ -234,7 +221,7 @@
                     var forma = $( "#enviosForm" ).serialize();
                     $.ajax({
                         /* Usar el route  */
-                        url: "#",
+                        url: "{{route('dashboard')}}",
                         type: 'POST',
                         /* send the csrf-token and the input to the controller */
                         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
@@ -296,7 +283,6 @@
             }
 
             $(function(){
-                console.log("validar");
                 $("#peso").on("change keyup paste", function (){
                     calculo();
                 });

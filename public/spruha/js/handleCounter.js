@@ -144,7 +144,7 @@
 		$('#handleCounterMax100').handleCounter(options)
 		
     function valChanged(d) {
-        console.log(d)
+        
     };
 
 		

@@ -13,15 +13,14 @@
                 </div>
             </div>
         </div>
-        <div class="row row-sm">
-            @include("guia.crear.seccion1")
-            @include("guia.crear.seccion2")
-            @include("guia.crear.seccion3")
-        <!-- Inicio Row Botones-->
-        
-            @include("guia.crear.botones")
-        </div>
-        <!-- Fin Row Botones-->
+        {!! Form::open([ 'route' => 'guia.store', 'method' => 'POST' , 'class'=>'parsley-style-1', 'id'=>'enviosForm' ]) !!}
+            <div class="row row-sm">
+                @include("guia.crear.seccion1")
+                @include("guia.crear.seccion2")
+                @include("guia.crear.seccion3")
+                @include("guia.crear.botones")
+            </div>
+        {!! Form::close() !!}
     </div>
 </div>
 <!-- End Row -->
