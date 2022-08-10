@@ -84,6 +84,7 @@
                         @include('menu.ltd')
                         @include('menu.guia')
                         @include('menu.usuario')
+                        @include('menu.roles')
 
                        
                     </ul>
