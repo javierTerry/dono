@@ -5,10 +5,11 @@
 	</a>
 	<div class="dropdown-menu">
 		<div class="header-navheading">
-			<h6 class="main-notification-title"></h6>
+			<h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
+			<p class="main-notification-text">{{Auth::user()->roles->isNotEmpty() ? Auth::user()->roles->first()->name : ""}}</p>
 			
 		</div>
-		<a class="dropdown-item border-top" href="#">
+		<a class="dropdown-item border-top" href="{{route('profile.index')}}">
 			<i class="fe fe-user"></i> My Profile
 		</a>
 		<a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('submit-form').submit();">

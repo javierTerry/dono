@@ -83,6 +83,8 @@
                       
                         @include('menu.ltd')
                         @include('menu.guia')
+                        @include('menu.usuario')
+
                        
                     </ul>
                 </div>
