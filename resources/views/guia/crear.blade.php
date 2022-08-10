@@ -17,9 +17,8 @@
             @include("guia.crear.seccion1")
             @include("guia.crear.seccion2")
             @include("guia.crear.seccion3")
-        </div>
         <!-- Inicio Row Botones-->
-        <div class="row row-sm">
+        
             @include("guia.crear.botones")
         </div>
         <!-- Fin Row Botones-->
