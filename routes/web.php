@@ -16,6 +16,7 @@ use App\Dto\Estafeta;
 |
 */
 
+
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -39,6 +40,11 @@ Route::get("/estafeta",function( ){
 });
 
 
+  //USUARIO
+    Route::resource('users','Roles\UsersController');//->middleware('roles:sysadmin,admin,cliente'); 
+    //FIN USUARIO
+
+    Route::resource('profile','userProfileController');
 
 
 require __DIR__.'/auth.php';
