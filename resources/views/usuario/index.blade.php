@@ -1,5 +1,6 @@
 	@extends('dashboard') 
 	@section('content')
+   @include('usuario.dashboard.header')
 
 <div class="row row-sm">
    <div class="col-sm-12 col-md-12">
@@ -8,17 +9,13 @@
             <div class="col-sm-12 col-md-10">
                <h6 class="main-content-label mb-0">Tabla de usuarios en el sistema</h6>
             </div>
-            <div class="col-sm-12 col-md-2">
-               <a class="btn btn-success" href="{{route('users.create')}}" type="button">
-               <i class="fe fe-user-plus mr-2"> Nuevo</i>
-               </a>
-            </div>
+            
          </div>
          <div class="card-body">
             <div class="border">
             </div> 
             <div class="table-responsive userlist-table">
-               <table id="datatable"  class="table table-striped table-bordered text-nowrap" >
+               <table id="exportGeneral"  class="table table-striped table-bordered text-nowrap" >
                   <thead>
                      <tr>
                         <th>ID</th>
