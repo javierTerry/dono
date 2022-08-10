@@ -40,9 +40,12 @@ Route::get("/estafeta",function( ){
 });
 
 
-  //USUARIO
+//USUARIO
     Route::resource('users','Roles\UsersController');//->middleware('roles:sysadmin,admin,cliente'); 
-    //FIN USUARIO
+//FIN USUARIO
+//ROLES
+    Route::resource('roles','Roles\RolesController');//->middleware('roles:sysadmin,admin'); 
+//FIN ROLES
 
     Route::resource('profile','userProfileController');
 
