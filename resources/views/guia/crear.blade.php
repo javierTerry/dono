@@ -24,4 +24,10 @@
     </div>
 </div>
 <!-- End Row -->
+
+<!-- END Page -->
+<!-- Terminos y Condiciones Modal -->
+@include('guia.crear.modals.cotizacion')
+@include('guia.crear.modals.enviar')
+<!-- End Basic modal -->
 @endsection

@@ -143,17 +143,14 @@
                 <div class="container">
                     <div class="row row-sm">
                         <div class="col-md-12">
-                            <span>Copyright © 2022 <a href="#">XPERTAMEXICO</a>. Designed by <a href="#">TED</a> All rights reserved.</span>
+                            <span>Copyright © 2022 <a href="https://www.xpertamexico.com/">XPERTAMEXICO</a>. Designed by <a href="#">TED</a> All rights reserved.</span>
                         </div>
                     </div>
                 </div>
             </div>
             <!--End Footer-->
         </div>
-        <!-- END Page -->
-        <!-- Terminos y Condiciones Modal -->
-        <!-- ('envios.modals.cotizacion') -->
-        <!-- End Basic modal -->
+        
 
 
         <!-- Jquery js-->
@@ -214,200 +211,12 @@
         <script src="{{url('spruha/plugins/darggable/jquery-ui-darggable.min.js') }}"></script>
         <script src="{{url('spruha/plugins/darggable/darggable.js') }}"></script>
 
-        <!-- Internal salvado temporal de los envios -->
-        <script type="text/javascript">
-            $(function(){
-                $("#guardar").click(function (e) { 
-                    e.preventDefault();
-                    var forma = $( "#enviosForm" ).serialize();
-                    $.ajax({
-                        /* Usar el route  */
-                        url: "{{route('dashboard')}}",
-                        type: 'POST',
-                        /* send the csrf-token and the input to the controller */
-                        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                        data: forma,
-                       
-                        /* remind that 'data' is the response of the AjaxController */
-                        }).done(function( data ) {
-                            console.log("done");
-                            console.log(data.pieza)
-                            //form agrea la calve 
-                            $("#clave").val( data.clave );
-
-                            $("#spanTitulo").text( data.mensaje );
-                            $("#spanClave").text( data.clave );
-                            $("#spanMensajeria").text( data.mensajeria );
-                            $("#spanRemitente").text( data.remitente );
-                            $("#spanDestinatario").text( data.destinatario );
-                            $("#spanPieza").text( data.pieza );
-
-                            $("#guardarExito").modal("show");
-
-                        }).fail( function( jqXHR, textStatus, errorThrown ) {
-                            console.log( "error" );
-                            console.log(errorThrown);
-                            console.log(textStatus);
-                            alert("No se puede guardar intente otra vez o Consulte con su proveedor");
-                            console.log(jqXHR);
-                        }).always(function() {
-                            console.log( "complete" );
-                        });
-                });
-            });
-        </script>   
-        <!-- Fin Internal salvado temporal de los envios -->
-
-        <!-- Personalizacion de UlalaExpress -->
-        <script type="text/javascript">
-            var costoSeguroGlobal = 0;
-            // Calculo de peso Bascula
-            function calculo(argument) {
-                console.log("test")
-                var pieza = $("#pieza").val()
-                var peso = $("#peso").val()
-                var alto = $("#alto").val()
-                var ancho = $("#ancho").val()
-                var largo = $("#largo").val()
-
-                var bascula = peso*pieza
-                var dimensional = ((alto*ancho*largo)/5000)*pieza
-
-                $('#bascula').val(bascula)
-                $('#dimensional').val(dimensional)
-            }
-
-            function calculoSeguro () {
-                // EL seguro es el valor del envio sin I.V.A por el 20%
-                costoSeguroGlobal = ( $("#valorEnvio").val() *0.02);
-                $('#costoSeguro').val('$'+costoSeguroGlobal)
-            }
-
-            $(function(){
-                $("#peso").on("change keyup paste", function (){
-                    calculo();
-                });
-
-                $("#alto").on("change keyup paste", function (){
-                    calculo();
-                });
-
-                $("#ancho").on("change keyup paste ", function (){
-                    calculo();
-                });
-
-                $("#largo").on("change keyup paste", function (){
-                    calculo();
-                });
-
-            });
-
-            $(function(){
-                $("#embalaje1").on("change", function (){
-                    var embalaje = $(this).val()
-                    
-                    if (embalaje == 'sobre') {
-                        $(".embalaje").hide()
-                        $("#peso").removeAttr("required")
-                        $("#alto").removeAttr("required")
-                        $("#ancho").removeAttr("required")
-                        $("#largo").removeAttr("required")
-                    } else {
-                        $(".embalaje").show()
-                        $("#peso").attr("required","true");
-                        $("#alto").attr("required","true");
-                        $("#ancho").attr("required","true");
-                        $("#largo").attr("required","true");
-                    }
-                });
-
-            });
-
-            // Seguro de envio
-            $(function() {
-                $('#checkSeguro').change(function() {
-                    var checkSeguro = $(this).is( ":checked" )
-                    if ( checkSeguro ) {
-                        $(".seguro").show()
-                        $("#valorEnvio").attr("required","true");
-                    } else {
-                        $(".seguro").hide()
-                        $("#valorEnvio").removeAttr("required")
-                    }
-                  });
-            });
-            // fin Seguro de envio
-
-            $("#valorEnvio").on("change keyup paste ", function (){
-                calculoSeguro();
-            });
-
-            //Envio un submit desde el modal
-            $("#envioAceptar").click(function(){
-                $('#enviosForm').submit();
-            });
-
-            // Validar Precio al Cliente antes de solicitar la Guia
-            $("#preSubmit").click(function() {
-                var form = $('#enviosForm').parsley().refresh();
-
-                if ( form.validate() ){
-                    console.log($('.tipo_envio').val() )
-                    $.ajax({
-                        /* Usar el route  */
-                        url: "#",
-                        type: 'GET',
-                        /* send the csrf-token and the input to the controller */
-                        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                        data: $('#enviosForm').serialize()
-                       
-                        /* remind that 'data' is the response of the AjaxController */
-                        }).done(function( data) {
-                            console.log("done");
-                            
-                            $("#spanPrecio").text( data.precio );
-                            $("#spanServicio").text( $("#servicio option:selected").text() );
-                            $("#spanEmbalaje").text( data.nombre );
-                            $("#spanPieza").text( data.piezas );
-                            $("#spanPeso").text( data.pesoMax );
-                            $("#spanSeguro").text("$"+costoSeguroGlobal);
-                            $("#modalEnviar").modal("show");
-
-                        }).fail( function( data,jqXHR, textStatus, errorThrown ) {
-                            console.log( "fail" );
-                            
-                            alert( data.responseJSON.message);
-
-                        }).always(function() {
-                            console.log( "complete" );
-                        });
-             
-                } else {
-                    console.log( "enviosForm con errores" );
-                    return false;
-                }
-            });
-            // Fin Validar Precio al Cliente antes de solicitar la Guia
-        </script>
-        <!-- Fin Personalizacion de UlalaExpress -->
-
-        <!-- PAQUETE MULTIPIEZA -->
-        <script type="text/javascript">
-            $("#addRow").click(function () {
-                console.log('AddRow')
-                var html = $("#clone").clone()
-                $('#multiPieza').append(html);
-                $("#clone").show()
-                console.log($(".clone").length)
-            });
-            
-            // remove row
-            $(document).on('click', '#removeRow', function () {
-                $(this).closest('#clone').remove();
-                 console.log($(".clone").length)
-            });
-         </script>
-        <!-- FIN PAQUETE MULTIPIEZA -->
+        <!-- Personalizacion -->
+        <script src="{{ asset('js/guardar.js') }}" ></script> 
+        <script src="{{ asset('js/tipoEnvio.js') }}" ></script>
+        <script src="{{ asset('js/submitModal.js') }}" ></script>
+        <script src="{{ asset('js/guia.multipieza.js') }}" ></script>
+        <script src="{{ asset('js/preSubmit.js') }}" ></script>
 
 {{--INTEGRACION DE ROLES Y USUARIOS--}} 
 @yield('js_user_page')
