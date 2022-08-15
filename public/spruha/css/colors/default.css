@@ -691,7 +691,7 @@ pre {
 }
 
 .main-sidebar-body li.active .sidemenu-label, .main-sidebar-body li.active i {
-  color: #6aa84f;
+  color: #6259ca;
 }
 
 .light-horizontal .main-navbar.hor-menu .nav-item.active .nav-link, .light-horizontal .main-navbar.hor-menu .nav-item:hover .nav-link {
@@ -720,7 +720,7 @@ pre {
 }
 
 .main-sidebar-body li.active .sidemenu-icon {
-  background: #6aa84f;
+  background: #6259ca;
 }
 
 .project .deadline {
@@ -765,11 +765,11 @@ pre {
 }
 
 .color-leftmenu .main-sidebar-sticky {
-  background: #6aa84f;
+  background: #6259ca;
 }
 
 .color-leftmenu .main-sidebar-body .sub-txt {
-  color: #6aa84f;
+  color: #9d96ef;
 }
 
 .color-leftmenu .main-sidebar-body .nav-label {

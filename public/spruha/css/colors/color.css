@@ -691,7 +691,7 @@ pre {
 }
 
 .main-sidebar-body li.active .sidemenu-label, .main-sidebar-body li.active i {
-  color: #35b033;
+  color: #6259ca;
 }
 
 .light-horizontal .main-navbar.hor-menu .nav-item.active .nav-link, .light-horizontal .main-navbar.hor-menu .nav-item:hover .nav-link {
@@ -715,7 +715,7 @@ pre {
 }
 
 .main-sidebar-body .nav-sub-link:hover, .main-sidebar-body .nav-sub-link:focus {
-  color: #6aa84f;
+  color: #fff;
 }
 
 .main-sidebar-body .nav-sub .nav-sub-item.active .nav-sub-link:before {
@@ -724,7 +724,7 @@ pre {
 }
 
 .main-sidebar-body li.active .sidemenu-icon {
-  background: #35b033;
+  background: #6259ca;
 }
 
 .project .deadline {
@@ -773,7 +773,7 @@ pre {
 }
 
 .color-leftmenu .main-sidebar-body .sub-txt {
-  color: #35b033;
+  color: #9d96ef;
 }
 
 .color-leftmenu .main-sidebar-body .nav-label {

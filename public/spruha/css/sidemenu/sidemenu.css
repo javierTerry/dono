@@ -249,7 +249,7 @@
   bottom: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
-  background: #2051F8;
+  background: #25233c;
 }
 
 .main-sidebar-body .nav-item.active .nav-link:before {
@@ -308,7 +308,7 @@
 }
 
 .main-sidebar-body li.nav-item.active .nav-link {
-  background-color: #6aa84f;
+  background-color: #eaedf7;
   position: relative;
   z-index: 1;
   margin: 10px auto;
@@ -321,11 +321,11 @@
 }
 
 .main-sidebar-body .nav-item.active .nav-link:before, .main-sidebar-body .nav-item.active .nav-link:after {
-  border-right: 20px solid #6aa84f;
+  border-right: 20px solid #25233c;
 }
 
 .main-sidebar-body .nav-item.active .nav-link .shape1, .main-sidebar-body .nav-item.active .nav-link .shape2 {
-  background: #6aa84f;
+  background: #eaedf7;
 }
 
 @media (min-width: 992px) {
@@ -528,7 +528,7 @@
 }
 
 .main-sidebar-body .nav-sub-item.active > .nav-sub-link {
-  color: #6aa84f;
+  color: #c6c6e0;
 }
 
 .main-sidebar-body .nav-sub-item.show .nav-sub {
@@ -637,7 +637,7 @@
     width: 35px;
     height: 35px;
     line-height: 35px;
-    background: #6aa84f;
+    background: #6259ca;
     text-align: center;
     border-radius: 50%;
     -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -660,7 +660,7 @@
     margin: 6px 0;
   }
   .main-sidebar-hide .main-sidebar-body li.active .sidemenu-icon {
-    background: #6aa84f;
+    background: #6259ca;
     margin-left: 5px;
   }
   .main-sidebar-hide .main-sidebar-body li.nav-item.active .nav-link {
@@ -805,7 +805,7 @@
     letter-spacing: .5px;
     color: #ffffff;
     padding: 0;
-    background: #6aa84f;
+    background: #07a7bb;
     width: 28px;
     border-radius: 50%;
     text-align: center;
@@ -1015,10 +1015,10 @@
     display: none !important;
   }
   .leftmenu.light-leftmenu.main-sidebar-hide.main-sidebar-open .main-sidebar-body .nav-label {
-    color: #6aa84f;
+    color: #c8c4db;
   }
   .leftmenu.light-leftmenu.main-sidebar-hide.main-sidebar-open .main-sidebar-body .sub-txt {
-    color: #6aa84f;
+    color: #a2a2b9;
   }
   .leftmenu.light-leftmenu.main-sidebar-hide .sidemenu-logo {
     border-bottom: 1px solid #f0f0ff;

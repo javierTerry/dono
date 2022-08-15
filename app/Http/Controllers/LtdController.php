@@ -34,7 +34,15 @@ class LtdController extends Controller
      */
     public function create()
     {
-        //
+        try {
+            Log::info(__CLASS__." ".__FUNCTION__);    
+            $tabla = array();
+            return view('ltd.crear' 
+                    ,compact("tabla")
+                );
+        } catch (Exception $e) {
+            Log::info(__CLASS__." ".__FUNCTION__);
+        }
     }
 
     /**
@@ -67,7 +75,15 @@ class LtdController extends Controller
      */
     public function edit(Ltd $ltd)
     {
-        //
+        try {
+            Log::info(__CLASS__." ".__FUNCTION__);    
+            $tabla = array();
+            return view('ltd.editar' 
+                    ,compact("tabla")
+                );
+        } catch (Exception $e) {
+            Log::info(__CLASS__." ".__FUNCTION__);
+        }
     }
 
     /**
