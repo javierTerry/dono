@@ -62,7 +62,7 @@
                 <div class="sidemenu-logo">
                     <a class="main-logo" href="index.html">
                         <img src="{{ url('spruha/img/brand/ulalaLogoBco-134x50.png') }}" class="header-brand-img desktop-logo" alt="logo">
-                        <img src="{{ url('spruha/img/brand/logoUlala-50x56.png') }}" class="header-brand-img icon-logo" alt="logo">
+                        <img src="{{ url('spruha/img/brand/xperta-50x56.png') }}" class="header-brand-img icon-logo" alt="logo">
                         <img src="{{ url('spruha/img/brand/ulalaBco.png') }}" class="header-brand-img desktop-logo theme-logo" alt="logo">
                         <img src="{{ url('spruha/img/brand/ulalaBco.png') }}" class="header-brand-img icon-logo theme-logo" alt="logo">
                     </a>

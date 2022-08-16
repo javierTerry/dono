@@ -30,7 +30,7 @@
                      @foreach($users as $users)
                      @if(!\Auth::user()->hasRol('sysadmin') && $users->hasRol('sysadmin' )) @continue; @endif
                      <tr>
-                        <td>{{$users['id']}}</td>
+                        <td>{{$users['id']}} </td>
                         <td>{{$users['name']}}</td>
                         <td>{{$users['email']}}</td>
                         <td>
