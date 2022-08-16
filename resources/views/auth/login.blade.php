@@ -10,10 +10,10 @@
          <div class="card">
             <div class="row row-sm">
                <div class="col-lg-6 col-xl-5 d-none d-lg-block text-center bg-primary details">
-                  <div class="mt-5 pt-4 p-2 pos-absolute">
-                     <img  src="{{ url('spruha/img/brand/xpertaLogoTrans-138x142.png') }}" class="header-brand-img mb-4" alt="logo">{{ config('app.env', 'Ambiente') }}
+                  <div class="mt-2 pt-4 p-2 pos-absolute">
+                     <img  src="{{ url('spruha/img/brand/xpertaLogoTrans-138x142.png') }}" class="header-brand-img mb-1" alt="logo">{{ config('app.env', 'Ambiente') }}
                      <div class="clearfix"></div>
-                     <img src="{{ url('spruha/img/svgs/user.svg') }}" class="ht-100 mb-0" alxpertaLogoTrans-138x142.pngt="user">
+                     <img src="{{ url('spruha/img/svgs/user.svg') }}" class="ht-90 mb-0" alt="user">
                      <h5 class="mt-4 text-white">Create Your Account</h5>
                      <span class="tx-white-6 tx-13 mb-5 mt-xl-0">Signup to create, discover and connect with the global community</span>
                   </div>

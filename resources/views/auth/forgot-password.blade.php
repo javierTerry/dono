@@ -1,36 +1,59 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.app') 
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-        </div>
-
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
-
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+@section('content')
+<!-- Page -->
+<div class="page main-signin-wrapper">
+   <!-- Row -->
+   <div class="row signpages text-center" >
+      <div class="col-md-12">
+         <div class="card">
+            <div class="row row-sm">
+               <div class="col-lg-6 col-xl-5 d-none d-lg-block text-center bg-primary details">
+                  <div class="mt-0 pt-4 p-2 pos-absolute">
+                     <img  src="{{ url('spruha/img/brand/xpertaLogoTrans-138x142.png') }}" class="header-brand-img mb-1" alt="logo">{{ config('app.env', 'Ambiente') }}
+                     <div class="clearfix"></div>
+                     <img src="{{ url('spruha/img/svgs/user.svg') }}" class="ht-90 mb-0" alt="user">
+                     <h5 class="mt-4 text-white">Create Your Account</h5>
+                     <span class="tx-white-6 tx-13 mb-5 mt-xl-0">Signup to create, discover and connect with the global community</span>
+                  </div>
+               </div>
+               <div class="col-lg-6 col-xl-7 col-xs-12 col-sm-12 login_form ">
+                  <div class="container-fluid">
+                     <div class="row row-sm">
+                        <div class="card-body mt-2 mb-2">
+                           <img src="{{ url('spruha/img/brand/ulalaPurpureLogo-134x49.png') }}" class=" d-lg-none header-brand-img text-center float-center mb-4" alt="logo">
+                           <div class="clearfix"></div>
+                            <form method="POST" action="{{ route('password.email') }}">
+                            @csrf
+                                <h5 class="text-left mb-2">{{ __('Restaurar contraseña') }}</h5>
+                                  <p class="mb-4 text-muted tx-13 ml-0 text-left">{{ __('No te preocupes, solo tomará unos minutos.') }}</p>
+                                  <br>
+                                  <div class="form-group text-left">
+                                     <label>Email</label>
+                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Ingresa tu email">
+                                     @error('email')
+                                     <span class="invalid-feedback" role="alert">
+                                     <strong>{{ $message }}</strong>
+                                     </span>
+                                     @enderror
+                                  </div>
+                                  <button type="submit" class="btn ripple btn-main-primary btn-block">{{ __('Enviar vínculo') }}</button>
+                            </form>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                              <!-- <div>Don't have an account? <a href="#">Register Here</a></div> -->
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+         </div>
+      </div>
+   </div>
+   <!-- End Row -->
+</div>
+        <!-- End Page -->
+@endsection
