@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ltd;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreLtdRequest;
 
 use Log;
 
 class LtdController extends Controller
 {
+    const INDEX = "ltds.index";
     /**
      * Display a listing of the resource.
      *
@@ -51,9 +52,22 @@ class LtdController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreLtdRequest $request)
     {
-        //
+        Log::info(__CLASS__." ".__FUNCTION__);
+        try {
+            //dd(  );
+            $tmp = sprintf("El registro del nuevo LTD '%s', fue exitoso",$request->get('nombre'));
+            $notices = array($tmp);
+  
+
+        } catch (Exception $e) {
+            Log::info(__CLASS__." ".__FUNCTION__);
+            Log::debug( $e->getMessage() );
+        }
+
+        return \Redirect::route(self::INDEX) -> withSuccess ($notices);
+        
     }
 
     /**

@@ -15,7 +15,7 @@
         <!-- Title -->
         <title>{{ config('app.name', 'Laravel') }} - Plataforma de envios</title>
 
-        <!-- Scripts -->
+        <!-- js -->
         <script src="{{ asset('js/chart.js-3.9.1/package/dist/chart.js') }}" ></script>
 
 
@@ -39,7 +39,7 @@
         <link rel="stylesheet" href="{{ url('spruha/plugins/multipleselect/multiple-select.css') }}">
 
         <!-- Sidemenu css-->
-        <link href="{{ url('spruha/css/sidemenu/sidemenu2.css') }}"  rel="stylesheet">
+        <link href="{{ url('spruha/css/sidemenu/sidemenu4.css') }}"  rel="stylesheet">
         
 
         <!-- Internal DataTables css-->
@@ -216,6 +216,9 @@
         <script src="{{ asset('js/submitModal.js') }}" ></script>
         <script src="{{ asset('js/guia.multipieza.js') }}" ></script>
         <script src="{{ asset('js/preSubmit.js') }}" ></script>
+        <!-- Personalizacion de validicon con parley -->
+        <script src="{{ asset('js/form-validation.js') }}" ></script>
+
 
 {{--INTEGRACION DE ROLES Y USUARIOS--}} 
 @yield('js_user_page')

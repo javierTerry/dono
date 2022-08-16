@@ -4,7 +4,7 @@
         <div>
             <a class="btn btn-success" data-toggle="modal" id="preSubmit" href="">      Enviar
             </a>
-            <a href="{{ route('guia.index') }}" class="btn btn-danger" >Cancelar</a>
+            <a href="{{ route('guia.index') }}" class="btn badge-dark" >Cancelar</a>
         </div>
         <a id="guardar" href="" class="btn btn-primary" >Guardar</a>    
         
