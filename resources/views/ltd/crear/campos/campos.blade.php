@@ -13,25 +13,11 @@
 					{!! Form::text('nombre', null,
 						['class' 		=> 'form-control'
 							,'placeholder'	=> 'NOMBRE COMERCIAL'
-							,'id'		=> 'nombreComercial'
+							,'id'		=> 'nombre'
 							,'required'	=>	''
 						])
 					!!}
 					   
-				</div>
-
-				<div class="input-group mb-3">
-					<div class="input-group-prepend">
-						<span class="input-group-text" id="basic-addon1">@</span>
-					</div>
-					{!! Form::email('email'
-						,null
-						,['class' 		=> 'form-control'
-							,'placeholder'	=> 'Nombre de la Persona Fisica '
-							,'id'		=> 'email'
-							,'required'	=>	'true'
-						]
-					); !!}
 				</div>
 
 				<div class="input-group mb-3">
@@ -48,6 +34,20 @@
 							,'required'	=>	'true'
 						])
 					!!}
+				</div>
+
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1">@</span>
+					</div>
+					{!! Form::email('email'
+						,null
+						,['class' 		=> 'form-control'
+							,'placeholder'	=> 'Correo electronico '
+							,'id'		=> 'email'
+							,'required'	=>	'true'
+						]
+					); !!}
 				</div>
 				
 				<div class="input-group mb-3">

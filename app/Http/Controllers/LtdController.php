@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Ltd;
 use App\Http\Requests\StoreLtdRequest;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 use Log;
 
 class LtdController extends Controller
 {
-    const INDEX = "ltds.index";
+    const INDEX_r = "ltds.index";
+    const EDITAR_v = "ltd.editar";
+
     /**
      * Display a listing of the resource.
      *
@@ -19,9 +22,14 @@ class LtdController extends Controller
     {
         try {
             Log::info(__CLASS__." ".__FUNCTION__);    
-            $tabla = array();
+            $tabla = Ltd::where('estatus',1)
+                    ->get();
+
+            //dd($tabla);
+            $registros = $tabla->count();
+            $row = ceil($registros/3);
             return view('ltd.dashboard' 
-                    ,compact("tabla")
+                    ,compact("tabla", "row", "registros")
                 );
         } catch (Exception $e) {
                 
@@ -36,7 +44,7 @@ class LtdController extends Controller
     public function create()
     {
         try {
-            Log::info(__CLASS__." ".__FUNCTION__);    
+            Log::info(__CLASS__." ".__FUNCTION__);
             $tabla = array();
             return view('ltd.crear' 
                     ,compact("tabla")
@@ -56,17 +64,27 @@ class LtdController extends Controller
     {
         Log::info(__CLASS__." ".__FUNCTION__);
         try {
-            //dd(  );
+            
+            Ltd::create($request->except('_token'));
+
             $tmp = sprintf("El registro del nuevo LTD '%s', fue exitoso",$request->get('nombre'));
             $notices = array($tmp);
   
+            return \Redirect::route(self::INDEX_r) -> withSuccess ($notices);
+
+        } catch(\Illuminate\Database\QueryException $ex){ 
+            Log::info(__CLASS__." ".__FUNCTION__." "."QueryException");
+            Log::debug($ex->getMessage()); 
+            return \Redirect::back()
+                ->withErrors(array($ex->errorInfo[2]))
+                ->withInput();
 
         } catch (Exception $e) {
-            Log::info(__CLASS__." ".__FUNCTION__);
+            Log::info(__CLASS__." ".__FUNCTION__." "."Exception");
             Log::debug( $e->getMessage() );
         }
 
-        return \Redirect::route(self::INDEX) -> withSuccess ($notices);
+        
         
     }
 
@@ -90,13 +108,23 @@ class LtdController extends Controller
     public function edit(Ltd $ltd)
     {
         try {
-            Log::info(__CLASS__." ".__FUNCTION__);    
-            $tabla = array();
-            return view('ltd.editar' 
-                    ,compact("tabla")
-                );
+            Log::info(__CLASS__." ".__FUNCTION__."");
+            $ltd = Ltd::findOrFail($ltd->id);
+               
+            Log::debug($ltd);
+            return view(self::EDITAR_v
+                , compact('ltd') 
+            );
+       
+        } catch (ModelNotFoundException $e) {
+            Log::info(__CLASS__." ".__FUNCTION__." ModelNotFoundException");
+            return \Redirect::back()
+                ->withErrors(array($e->getMessage()))
+                ->withInput();
+
         } catch (Exception $e) {
-            Log::info(__CLASS__." ".__FUNCTION__);
+            Log::info(__CLASS__." ".__FUNCTION__." "."Exception");
+            Log::debug( $e->getMessage() );    
         }
     }
 
@@ -107,9 +135,28 @@ class LtdController extends Controller
      * @param  \App\Models\Ltd  $ltd
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ltd $ltd)
+    public function update(StoreLtdRequest $request, Ltd $ltd)
     {
-        //
+        Log::info(__CLASS__." ".__FUNCTION__);
+        try {
+            
+            $tmp = sprintf("Actualizacion del LTD '%s', fue exitoso",$request->get('nombre'));
+            $notices = array($tmp);
+            $ltd->fill($request->post())->save();
+  
+            return \Redirect::route(self::INDEX_r) -> withSuccess ($notices);
+
+        } catch(\Illuminate\Database\QueryException $ex){ 
+            Log::info(__CLASS__." ".__FUNCTION__." "."QueryException");
+            Log::debug($ex->getMessage()); 
+            return \Redirect::back()
+                ->withErrors(array($ex->errorInfo[2]))
+                ->withInput();
+
+        } catch (Exception $e) {
+            Log::info(__CLASS__." ".__FUNCTION__." "."Exception");
+            Log::debug( $e->getMessage() );
+        }
     }
 
     /**
@@ -120,6 +167,27 @@ class LtdController extends Controller
      */
     public function destroy(Ltd $ltd)
     {
-        //
+        Log::info(__CLASS__." ".__FUNCTION__);
+        try {
+            Log::info("Registro a Eliminar ". $ltd->id);
+            $tmp = sprintf("Registro eliminado del LTD '%s', fue exitoso","nombre");
+            $notices = array($tmp);
+
+            $ltd->estatus = 0;
+            $ltd->save();
+  
+            return \Redirect::route(self::INDEX_r) -> withSuccess ($notices);
+
+        } catch(\Illuminate\Database\QueryException $ex){ 
+            Log::info(__CLASS__." ".__FUNCTION__." "."QueryException");
+            Log::debug($ex->getMessage()); 
+            return \Redirect::back()
+                ->withErrors(array($ex->errorInfo[2]))
+                ->withInput();
+
+        } catch (Exception $e) {
+            Log::info(__CLASS__." ".__FUNCTION__." "."Exception");
+            Log::debug( $e->getMessage() );
+        }
     }
 }

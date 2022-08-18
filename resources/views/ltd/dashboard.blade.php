@@ -27,7 +27,11 @@
                     <label class="main-content-label mb-4">Servicios Contratados</label>
                 </div>
                 <div>
-                    @include('ltd.dashboard.lista')    
+                    @for ($i = 0; $i < $row; $i++)
+                        @include('ltd.dashboard.lista')
+                    @endfor
+
+                    
                 </div>    
             </div>
         </div>

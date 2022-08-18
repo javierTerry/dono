@@ -13,13 +13,18 @@
                 </div>
             </div>
         </div>
-        {!! Form::open([ 'route' => 'ltds.store', 'method' => 'POST' , 'class'=>'parsley-style-1', 'id'=>'enviosForm' ]) !!}
+        {!! Form::model($ltd,['route' => ['ltds.update',$ltd], 'method' => 'PUT' , 'class'=>'parsley-style-1', 'id'=>'generalForm' ]) !!}
             <div class="row row-sm">
                 <div class="col-xl-12">
                     <div class="card custom-card">
                         <div class="card-header bg-transparent border-bottom-0">
-               @include('ltd.crear.campos.campos')
+                            @include('ltd.crear.campos.campos')
+
                         </div>
+                    </div>
+                    <div>
+                        <a href="{{ route('ltds.index') }}" class="btn badge-dark" >Cancelar</a>
+                        <button type="submit" class="btn btn-primary ml-3" >Guardar</button>
                     </div>
                 </div>
             </div>

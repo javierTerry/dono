@@ -16,6 +16,13 @@ return new class extends Migration
         Schema::create('ltds', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+
+            $table->boolean('estatus')->default(1);
+            $table->string('nombre', 100);
+            $table->unique(['nombre']);
+            $table->string('responsable_legal',50);
+            $table->string('email',100);
+
         });
     }
 

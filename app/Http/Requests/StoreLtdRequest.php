@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreLtdRequest extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -25,7 +26,10 @@ class StoreLtdRequest extends FormRequest
     {
         return [
             'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string'],
+            'responsable_legal' => ['required', 'string'],
+            'nombre' => ['required', 'string'
+                        ]
+            
         ];
     }
 }
