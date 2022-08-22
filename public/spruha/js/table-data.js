@@ -3,12 +3,13 @@ $(function() {
 	
 	//Data tabla general
    var exportGeneral = $('#exportGeneral').DataTable( {
-      lengthChange: false,
+      pagingType: "full_numbers",
+      lengthChange: true,
       buttons: [ 
                { extend: 'excel', footer: true }
                ,{ extend: 'pdf', footer: true } 
                ]
-      ,"paging":   false
+      ,"paging": true
    } );
 
    exportGeneral.buttons().container()

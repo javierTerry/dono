@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Ltd;
 use App\Http\Requests\StoreLtdRequest;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-
 use Log;
 
 class LtdController extends Controller
 {
     const INDEX_r = "ltds.index";
+    const CREAR_v = "ltd.crear";
     const EDITAR_v = "ltd.editar";
 
     /**
@@ -32,7 +32,7 @@ class LtdController extends Controller
                     ,compact("tabla", "row", "registros")
                 );
         } catch (Exception $e) {
-                
+            Log::info(__CLASS__." ".__FUNCTION__." Exception");    
         }
     }
 
@@ -50,7 +50,7 @@ class LtdController extends Controller
                     ,compact("tabla")
                 );
         } catch (Exception $e) {
-            Log::info(__CLASS__." ".__FUNCTION__);
+            Log::info(__CLASS__." ".__FUNCTION__." Exception");
         }
     }
 
