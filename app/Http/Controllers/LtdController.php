@@ -167,6 +167,7 @@ class LtdController extends Controller
      */
     public function destroy(Ltd $ltd)
     {
+        dd($ltd);
         Log::info(__CLASS__." ".__FUNCTION__);
         try {
             Log::info("Registro a Eliminar ". $ltd->id);

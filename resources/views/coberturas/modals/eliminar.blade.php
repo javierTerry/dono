@@ -1,8 +1,4 @@
-<a href="" class="remove-list text-danger tx-20 remove-button" data-toggle="modal" data-target="#modal{{ $tabla[$ii] -> id }}" >
-	<i class="fa fa-trash" alt="Eliminar"></i>
-</a>
-							
-<div class="modal fade" id="modal{{ $tabla[$ii] -> id }}" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+<div class="modal fade" id="modal{{ $objeto->id }}" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	    	<div class="modal-header">
@@ -15,12 +11,13 @@
 	    	<div class="modal-body">
 	        	<p class="bigger-50 bolder center grey">
 					<i class="ace-icon fa fa-hand-o-right blue bigger-120"></i>
-					Seguro que quieres eliminar el ID {{ $tabla[$ii] -> id }}  con NOMBRE '{{ $tabla[$ii] -> nombre }}' ?  	
+					Seguro que quieres eliminar el ID {{ $objeto->id }}  con NOMBRE '{{ $objeto->id }}' ?  	
 				</p>
 	      	</div>
 		     <div class="modal-footer">
 		      	<button class="btn btn-primary" type="button" data-dismiss="modal">Cancelar</button>
-		      	{!! Form::open([ 'route' => ['ltds.destroy', $tabla[$ii]], 'metdod' => 'PUT' ]) !!}
+		      	{!! Form::open([ 'route' => ['coberturas.destroy', $objeto], 'metdod' => 'PUT' ]) !!}
+		      		@csrf
 		      		{{method_field('DELETE')}}
 					<a class="btn badge-dark" onclick="$(this).closest('form').submit();">Eliminar</a>
 					

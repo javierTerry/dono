@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Coberturas extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['estatus', 'ĺtds_id'];
 }

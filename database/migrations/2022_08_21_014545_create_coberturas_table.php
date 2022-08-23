@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->boolean('estatus')->default(1);
-            $table->unsignedInteger('ltds_id');
+            $table->unsignedInteger('ltds_id')->default(0);
             $table->unsignedInteger('municipio_num')->default(0);
             $table->unsignedInteger('estado_num')->default(0);
             $table->unsignedInteger('cp_num')->default(0);

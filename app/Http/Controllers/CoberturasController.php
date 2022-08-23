@@ -195,8 +195,33 @@ class CoberturasController extends Controller
      * @param  \App\Models\Coberturas  $coberturas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Coberturas $coberturas)
+    public function destroy(int $coberturasId)
     {
-        //
+        Log::info(__CLASS__." ".__FUNCTION__);
+        try {
+            Log::info("Registro a Eliminar ". $coberturasId);
+            $tmp = sprintf("Registro eliminado con exito");
+            $notices = array($tmp);
+
+            $coberturas = Coberturas::findOrFail($coberturasId);
+
+            $coberturas->estatus = 0;
+            $coberturas->save();
+
+            CoberturasLista::where('coberturas_id', $coberturasId)->delete();
+  
+            return \Redirect::route(self::INDEX_r) -> withSuccess ($notices);
+
+        } catch(\Illuminate\Database\QueryException $ex){ 
+            Log::info(__CLASS__." ".__FUNCTION__." "."QueryException");
+            Log::debug($ex->getMessage()); 
+            return \Redirect::back()
+                ->withErrors(array($ex->errorInfo[2]))
+                ->withInput();
+
+        } catch (Exception $e) {
+            Log::info(__CLASS__." ".__FUNCTION__." Exception");
+            Log::debug( $e->getMessage() );
+        }
     }
 }

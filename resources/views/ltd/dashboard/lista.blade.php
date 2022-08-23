@@ -17,9 +17,7 @@
 				</a>
 				@include('ltd.modals.eliminar')	
 			</div>
-			
 		</label>
-		
 	@endfor
 </div>
 
