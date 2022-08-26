@@ -226,9 +226,9 @@ $(function() {
 	//$('body').addClass('color-horizontal');
 	
 	/*Left-menu Styles*/
-	$('body').addClass('light-leftmenu');
+	/*$('body').addClass('light-leftmenu');
 	$('body').addClass('color-leftmenu');
-	
+	*/
 	/*Leftmenu Icon-Style*/
-	$('body').addClass('icon-style');
+	//$('body').addClass('icon-style');
 });

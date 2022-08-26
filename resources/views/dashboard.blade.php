@@ -39,7 +39,7 @@
         <link rel="stylesheet" href="{{ url('spruha/plugins/multipleselect/multiple-select.css') }}">
 
         <!-- Sidemenu css-->
-        <link href="{{ url('spruha/css/sidemenu/sidemenu4.css') }}"  rel="stylesheet">
+        <link href="{{ url('spruha/css/sidemenu/sidemenu.css') }}"  rel="stylesheet">
         
 
         <!-- Internal DataTables css-->
