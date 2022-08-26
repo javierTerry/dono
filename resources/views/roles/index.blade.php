@@ -14,7 +14,7 @@
          <div class="card-body">
             <div class="border">
             </div> 
-            <div class="table-responsive userlist-table">
+            <div class="table-responsive roleslist-table">
                <table id="exportGeneral"  class="table table-striped table-bordered text-nowrap" >
                   <thead>
                      <tr>
