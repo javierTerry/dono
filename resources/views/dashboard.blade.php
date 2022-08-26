@@ -74,22 +74,16 @@
                         <li class="nav-item ">
                             <a class="nav-link" href="{{ route('dashboard') }}"><span class="shape1"></span><span class="shape2"></span><i class="ti-home sidemenu-icon"></i><span class="sidemenu-label">DASHBOARD</span></a>
                         </li>
-                        @canany(['isAdmin','isSysAdmin'])
-                            @include('menu.configuracion')                      
-                        <!-- @include('menu.facturacion') -->
-                            @include('menu.cliente')                            
-                            @include('menu.roles')                  
+                        @canany(['isAdmin','isSysAdmin'])                       
+                            @include('menu.roles')  
+                            @include('menu.ltd')
+                            @include('menu.guia')               
                         @endcanany
-                        @canany(['isAdmin','isSysAdmin','isCliente'])
+                        @canany(['isAdmin','isSysAdmin','isManager'])
                             @include('menu.usuario')
                         @endcanany
                       
-                        @include('menu.ltd')
-                        @include('menu.guia')
-                        @include('menu.usuario')
-                        @include('menu.roles')
-
-                       
+                        
                     </ul>
                 </div>
             </div>
