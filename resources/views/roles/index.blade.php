@@ -1,6 +1,21 @@
 	@extends('dashboard')
 	@section('content')
    @include('roles.dashboard.header')
+   <!--Row-->
+<div class="row row-sm">
+    <div class="col-lg-12">
+        <div class="card custom-card mg-b-20">
+            <div class="card-body">
+                <div class="card-header border-bottom-0 pt-0 pl-0 pr-0 d-flex">
+                    <div>
+                        <label class="main-content-label mb-2">Tasks q</label> <span class="d-block tx-12 mb-3 text-muted">A task is accomplished by a set deadline, and must contribute toward work-related objectives.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Row end -->
 
 <div class="row row-sm">
    <div class="col-sm-12 col-md-12">
@@ -8,8 +23,7 @@
          <div class="card-header border-bottom-0 custom-card-header">
             <div class="col-sm-12 col-md-10">
                <h6 class="main-content-label mb-0">Tabla de roles del sistema</h6>
-            </div>
-            
+            </div>          
          </div>
          <div class="card-body">
             <div class="border">
@@ -41,8 +55,6 @@
                            @endif
                         </td>
                         <td>
-
-                          {{-- <a href="{{route('roles.show',$roles['id']) }} "><i class="fa fa-eye"></i></a> --}}
                            <a href="{{route('roles.edit',$roles['id']) }} " class="btn btn-sm btn-info"  ><i class="fe fe-edit-2"></i></a>	
                            <a href="#" data-toggle="modal" data-target="#deleteModalRole" data-rolid="{{ $roles['id'] }}" class="btn btn-sm btn-danger" ><i class="fe fe-trash"></i></a>							
                         </td>
@@ -51,7 +63,7 @@
                   </tbody>
                   <tfoot>
                      <tr>
-                        <td colspan="6"></td>
+                        <td colspan="4"></td>
                      </tr>
                   </tfoot>
                </table>

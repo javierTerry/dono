@@ -42,7 +42,7 @@
                   <div class="input-group-prepend">
                      <span class="input-group-text" id="basic-addon1">Selecionar Rol <span class="tx-danger">*</span></span>
                   </div>
-                  <select class="form-control" name="role" id="role">
+                  <select class="form-control" name="role" id="role" required>
                      <option value="">Seleccionar Rol...</option>
                      @foreach ($roles as $role)
                      @if(!\Auth::user()->hasRol('sysadmin') && $role->slug=="sysadmin")) @continue; @endif 
