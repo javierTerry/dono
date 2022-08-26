@@ -1,7 +1,8 @@
 @extends('dashboard')
 @section('content')
 
-@include('ltd.dashboard.header')
+
+
 <!--Row-->
 <div class="row row-sm">
     <div class="col-lg-12">
@@ -24,12 +25,10 @@
         <div class="card custom-card mg-b-20">
             <div class="card-body">
                 <div class="card-header border-bottom-0 pt-0 pl-0 pr-0 d-flex">
-                    <label class="main-content-label mb-4">Servicios Contratados</label>
+                    <label class="main-content-label mb-4"></label>
                 </div>
                 <div>
-                    @for ($i = 0; $i < $row; $i++)
-                        @include('ltd.dashboard.lista')
-                    @endfor    
+                    @include('coberturas.show.tabla')
                 </div>    
             </div>
         </div>
@@ -41,10 +40,12 @@
                 <div class="card-header border-bottom-0 pt-0 pl-0 pr-0 d-flex">
                     <label class="main-content-label mb-4">GRAFICAS</label>
                 </div>
-                @include('ltd.dashboard.grafica') 
+                @include('coberturas.dashboard.grafica') 
             </div>
         </div>
     </div>
 </div>
 <!-- Row end -->
+
+
 @endsection

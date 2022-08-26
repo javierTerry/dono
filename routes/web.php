@@ -28,6 +28,7 @@ Route::get('/dashboard', function () {
 
 Route::resource('ltds','LtdController');
 Route::resource('coberturas','CoberturasController');
+Route::resource('tarifas','TarifaController');
 Route::resource('guia','GuiaController');
 
 Route::get("/estafeta",function( ){

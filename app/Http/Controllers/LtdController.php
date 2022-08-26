@@ -25,7 +25,6 @@ class LtdController extends Controller
             $tabla = Ltd::where('estatus',1)
                     ->get();
 
-            //dd($tabla);
             $registros = $tabla->count();
             $row = ceil($registros/3);
             return view('ltd.dashboard' 
@@ -82,10 +81,7 @@ class LtdController extends Controller
         } catch (Exception $e) {
             Log::info(__CLASS__." ".__FUNCTION__." "."Exception");
             Log::debug( $e->getMessage() );
-        }
-
-        
-        
+        } 
     }
 
     /**
@@ -167,7 +163,7 @@ class LtdController extends Controller
      */
     public function destroy(Ltd $ltd)
     {
-        dd($ltd);
+        
         Log::info(__CLASS__." ".__FUNCTION__);
         try {
             Log::info("Registro a Eliminar ". $ltd->id);
