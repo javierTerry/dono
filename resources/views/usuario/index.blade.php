@@ -1,6 +1,21 @@
 	@extends('dashboard') 
 	@section('content')
    @include('usuario.dashboard.header')
+   <!--Row-->
+<div class="row row-sm">
+    <div class="col-lg-12">
+        <div class="card custom-card mg-b-20">
+            <div class="card-body">
+                <div class="card-header border-bottom-0 pt-0 pl-0 pr-0 d-flex">
+                    <div>
+                        <label class="main-content-label mb-2">Tasks q</label> <span class="d-block tx-12 mb-3 text-muted">A task is accomplished by a set deadline, and must contribute toward work-related objectives.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Row end -->
 
 <div class="row row-sm">
    <div class="col-sm-12 col-md-12">
@@ -8,8 +23,7 @@
          <div class="card-header border-bottom-0 custom-card-header">
             <div class="col-sm-12 col-md-10">
                <h6 class="main-content-label mb-0">Tabla de usuarios en el sistema</h6>
-            </div>
-            
+            </div>        
          </div>
          <div class="card-body">
             <div class="border">
@@ -47,16 +61,9 @@
 	                        	@endforeach
                         	@endif                     
                         </td>
-                        <td> <!-------------------- OTRO ESTILO DE BOTONES 
-                           <a href="/users/{{ $users['id'] }} " class="text-info tx-18"><i class="pe-7s-look"></i></a>
-                           <a href="/users/{{ $users['id'] }}/edit "  class="text-warning tx-18" ><i class="mdi mdi-account-card-details"></i></a>
-                           <a href="#" data-toggle="modal" data-target="#deleteModal" data-userid="{{$users['id']}}"  class="text-danger tx-18"><i class="mdi mdi-account-remove"></i></a>
-
-                          	-------------------------->
-                          {{-- <a href="/users/{{ $users['id'] }} " class="btn btn-sm btn-primary"><i class="fe fe-search"></i></a> --}}
+                        <td>
                            <a href="/users/{{ $users['id'] }}/edit "  class="btn btn-sm btn-info" ><i class="fe fe-edit-2"></i></a>
- 						   <a href="#" data-toggle="modal" data-target="#deleteModal" data-userid="{{$users['id']}}"  class="btn btn-sm btn-danger"><i class="fe fe-trash"></i></a>
-							
+ 						   <a href="#" data-toggle="modal" data-target="#deleteModal" data-userid="{{$users['id']}}"  class="btn btn-sm btn-danger"><i class="fe fe-trash"></i></a>						
                         </td>
                      </tr>
                      @endforeach
