@@ -9,5 +9,5 @@ class Tarifa extends Model
 {
     use HasFactory;
 
-    protected $fillable =['ltds_id','servicio_id','kg_ini','kg_fin','kg_extra','extendida'];
+    protected $fillable =['id','ltds_id','servicio_id','kg_ini','kg_fin','kg_extra','extendida'];
 }

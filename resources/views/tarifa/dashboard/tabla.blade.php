@@ -26,8 +26,8 @@
 					<td>$ {{ $objeto->extendida }}</td>
 					<td>{{ $objeto->fecha }}</td>
 					<td>
-						<a href=" {{ route('tarifas.show', $objeto['ltds_id']) }} " class="text-sm tx-20 ">
-							<i class="fe fe-eye" alt="Mostrar"></i>
+						<a href=" {{ route('tarifas.edit', $objeto->id) }} " class="text-info tx-20 ">
+							<i class="fe fe-edit" alt="Editar"></i>
 						</a>
 						<a href="" class="remove-list text-danger tx-20 remove-button" data-toggle="modal" data-target="#modal{{ $objeto['id'] }}" >
 	<i class="fa fa-trash" alt="Eliminar"></i>

@@ -31,15 +31,6 @@ Route::resource('coberturas','CoberturasController');
 Route::resource('tarifas','TarifaController');
 Route::resource('guia','GuiaController');
 
-Route::get("/estafeta",function( ){
-
-    $estafeta = new Estafeta();
-    $estafeta -> init();
-
-
-    $data = "estafeta";
-    dd($data);
-});
 
 
 //USUARIO

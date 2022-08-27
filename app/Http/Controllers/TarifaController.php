@@ -39,8 +39,11 @@ class TarifaController extends Controller
             $pluckServicio = Servicio::where('estatus',1)
                     ->pluck('nombre','id');
 
+            $registros = $tabla->count();
+            $row = ceil($registros/3);
+
             return view(self::DASH_v 
-                    ,compact("tabla", "pluckLtd", "pluckServicio")
+                    ,compact("tabla", "pluckLtd", "pluckServicio", "row", "registros")
                 );
 
         } catch (Exception $e) {
@@ -123,7 +126,29 @@ class TarifaController extends Controller
      */
     public function edit(Tarifa $tarifa)
     {
-        //
+        try {
+            Log::info(__CLASS__." ".__FUNCTION__);    
+            $tarifa = Tarifa::findOrFail($tarifa->id);
+            
+            $pluckLtd = Ltd::where('estatus',1)
+                                ->pluck('nombre','id');
+
+            $pluckServicio = Servicio::where('estatus',1)
+                                ->pluck('nombre','id');
+
+            return view(self::EDITAR_v 
+                    ,compact("tarifa","pluckLtd", "pluckServicio")
+                );
+        } catch (ModelNotFoundException $e) {
+            Log::info(__CLASS__." ".__FUNCTION__." ModelNotFoundException");
+            return \Redirect::back()
+                ->withErrors(array($e->getMessage()))
+                ->withInput();
+
+        } catch (Exception $e) {
+            Log::info(__CLASS__." ".__FUNCTION__);
+            Log::info("Error general ");       
+        }
     }
 
     /**
@@ -135,7 +160,27 @@ class TarifaController extends Controller
      */
     public function update(UpdateTarifaRequest $request, Tarifa $tarifa)
     {
-        //
+        Log::info(__CLASS__." ".__FUNCTION__);
+        try {
+            
+            $tarifa->fill($request->post())->save();
+  
+            $tmp = sprintf("Actualizacion de la TARIFA '%s', fue exitoso",$tarifa->id);
+            $notices = array($tmp);
+
+            return \Redirect::route(self::INDEX_r) -> withSuccess ($notices);
+
+        } catch(\Illuminate\Database\QueryException $ex){ 
+            Log::info(__CLASS__." ".__FUNCTION__." "."QueryException");
+            Log::debug($ex->getMessage()); 
+            return \Redirect::back()
+                ->withErrors(array($ex->errorInfo[2]))
+                ->withInput();
+
+        } catch (Exception $e) {
+            Log::info(__CLASS__." ".__FUNCTION__." "."Exception");
+            Log::debug( $e->getMessage() );
+        }
     }
 
     /**
@@ -146,6 +191,28 @@ class TarifaController extends Controller
      */
     public function destroy(Tarifa $tarifa)
     {
-        //
+        Log::info(__CLASS__." ".__FUNCTION__);
+        try {
+
+            Log::info("Registro a Eliminar ". $tarifa->id);
+            $tmp = sprintf("El Registro de la Tarifa '%s', fue eliminado exitosamente",$tarifa->id);
+            $notices = array($tmp);
+
+            $tarifa->estatus = 0;
+            $tarifa->save();
+  
+            return \Redirect::route(self::INDEX_r) -> withSuccess ($notices);
+
+        } catch(\Illuminate\Database\QueryException $ex){ 
+            Log::info(__CLASS__." ".__FUNCTION__." "."QueryException");
+            Log::debug($ex->getMessage()); 
+            return \Redirect::back()
+                ->withErrors(array($ex->errorInfo[2]))
+                ->withInput();
+
+        } catch (Exception $e) {
+            Log::info(__CLASS__." ".__FUNCTION__." "."Exception");
+            Log::debug( $e->getMessage() );
+        }
     }
 }
