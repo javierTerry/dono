@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\API\LoginController;
+use App\Http\Controllers\API\GuiaController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +17,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::controller(LoginController::class)->group(function(){
+    Route::post('login', 'login');
+    Route::get('registro', 'register');
+
+});
+
+Route::middleware('auth:sanctum')->get('/users', function (Request $request) {
+    
+    return response()->json([
+            'status' => true,
+            'message' => "Post Deleted successfully!",
+        ], 200);
+});
+
+
+Route::middleware('auth:sanctum')->group(function(){
+
+    Route::controller(GuiaController::class)->group(function(){
+        Route::get('ltds', 'creacion');
+    });
+
+});
+
 });
