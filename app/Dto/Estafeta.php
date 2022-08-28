@@ -46,20 +46,20 @@ class Estafeta
             Log::debug($path_to_wsdl);
             $client = new \SoapClient($path_to_wsdl, array('trace' => 1));
             ini_set("soap.wsdl_cache_enabled", "0");
-            
+
             $labelDTO = new Label($data);
-			
+			 
             $response =$client->createLabel($labelDTO);
-            dd($response);
+            Log::info(__CLASS__." ".__FUNCTION__." ".$response->globalResult->resultDescription);
             return response()->json([
                 'codigo' => $response->globalResult->resultCode,
                 'descripcion' => $response->globalResult->resultDescription
                 ,'pdf'  => base64_encode($response->labelPDF)
             ]);
                  
-
+            Log::info(__CLASS__." ".__FUNCTION__." Fin Try");
         } catch (DataTransferObjectError $exception) {
-
+            Log::info(__CLASS__." ".__FUNCTION__."DataTransferObjectError "); 
              return response()->json([
                 'codigo' => "11",
                 'descripcion' => $exception->getMessage()
@@ -67,7 +67,7 @@ class Estafeta
                 ]);
 
         } catch(Exeption $e){
-
+            Log::info(__CLASS__." ".__FUNCTION__."Exeption ");
         	return response()->json([
                 'codigo' => "11",
                 'descripcion' => $e->getMessage()

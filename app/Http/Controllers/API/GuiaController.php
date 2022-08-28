@@ -5,7 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\API\BaseController as Controller;
 use Illuminate\Http\Request;
 use Log;
-
+use Laravel\Sanctum\HasApiTokens;
+use App\Dto\Estafeta;
 class GuiaController extends Controller
 {
     /**
@@ -16,8 +17,11 @@ class GuiaController extends Controller
     public function Creacion(Request $request)
     {
         Log::info(__CLASS__." ".__FUNCTION__);
+        $guia = new Estafeta();
 
-        $success = array('exito' => 'todo en orden', );
-        return $this->sendResponse($success, 'User login successfully.');
+        $request->user()->currentAccessToken()->delete();
+        return $guia -> init();
+
+        
     }
 }
