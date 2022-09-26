@@ -4,6 +4,7 @@
 /public/storage
 /storage/*.key
 /vendor
+.composer.lock
 .env
 .env.backup
 .phpunit.result.cache
@@ -14,3 +15,5 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+composer.lock
+.gitignore
